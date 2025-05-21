@@ -13,33 +13,30 @@ export default async function HomePage() {
   const products = await getProducts();
 
   return (
-    <main style={{ padding: '2rem', fontFamily: 'sans-serif' }}>
-      <h1 style={{ fontSize: '2rem', marginBottom: '1rem' }}>لیست محصولات</h1>
-      <div style={{
-        display: 'grid',
-        gridTemplateColumns: 'repeat(auto-fill, minmax(250px, 1fr))',
-        gap: '1.5rem',
-      }}>
+    <main className="p-8 font-sans">
+      <h1 className="text-3xl font-bold mb-6 text-center">لیست محصولات</h1>
+
+      <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-6">
         {products && products.length > 0 ? (
           products.map((product: any) => (
-            <div key={product.id} style={{
-              border: '1px solid #ddd',
-              borderRadius: '10px',
-              padding: '1rem',
-              textAlign: 'center',
-              backgroundColor: '#f9f9f9'
-            }}>
+            <div
+              key={product.id}
+              className="bg-white rounded-xl shadow-md p-4 text-center hover:shadow-lg transition-shadow"
+            >
               {product.images?.[0]?.src ? (
                 <img
                   src={product.images[0].src}
                   alt={product.name}
-                  style={{ maxWidth: '100%', height: '200px', objectFit: 'contain' }}
+                  className="w-full h-48 object-contain mb-4"
                 />
               ) : (
-                <div style={{ height: '200px', backgroundColor: '#eee' }}>بدون تصویر</div>
+                <div className="w-full h-48 bg-gray-100 flex items-center justify-center text-gray-400">
+                  بدون تصویر
+                </div>
               )}
-              <h2 style={{ fontSize: '1.1rem', marginTop: '1rem' }}>{product.name}</h2>
-              <p style={{ color: '#333', fontWeight: 'bold' }}>{product.price} تومان</p>
+
+              <h2 className="text-lg font-semibold">{product.name}</h2>
+              <p className="text-pink-600 font-bold mt-2">{product.price} تومان</p>
             </div>
           ))
         ) : (
