@@ -1,10 +1,3 @@
-ck_d182112caa9d47361973791a8f0ef503cdcca4b1
-.............
-cs_56b41ce98d1989fc91dd39e7b082314e6dd86fe4
-..........
-https://verytop.ir/wp-json/wc/v3/products?consumer_key=ck_d182112caa9d47361973791a8f0ef503cdcca4b1&consumer_secret=cs_56b41ce98d1989fc91dd39e7b082314e6dd86fe4
- 
-
 // app/page.tsx
 
 async function getProducts() {
